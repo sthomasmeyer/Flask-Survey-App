@@ -1,0 +1,26 @@
+<!-- The following line of code ensures that this HTML template is...
+a "child" of the "base" template we've created. -->
+{% extends 'base.html' %}
+
+<!-- In order to alter the pre-defined [block] of the "base" HTML template...
+that is meant to be manipulated by its "children", we must first write... -->
+{% block content %}
+<!-- Then, we can fill this [block] w/ anything our heart desires. -->
+
+<h1>DANGER ZONE</h1>
+<p>
+  Congratulations! You've completed the onboarding questionnaire.
+  Here's a list of your recorded answers:
+</p>
+
+<ol>
+{% for question in questions %}
+  <li>
+    {{ questions[loop.index - 1].question }}
+    -
+    <strong>{{ responses[loop.index -1] }}</strong>
+  </li>
+{% endfor %}
+</ol>
+
+{% endblock %}

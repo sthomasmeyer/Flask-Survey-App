@@ -1,0 +1,23 @@
+<!-- The following line of code ensures that this HTML template is...
+a "child" of the "base" template we've created. -->
+{% extends 'base.html' %}
+
+<!-- In order to alter the pre-defined [block] of the "base" HTML template...
+that is meant to be manipulated by its "children", we must first write... -->
+{% block content %}
+<!-- Then, we can fill this [block] w/ anything our heart desires. -->
+
+<!-- Access + display the [title] attribute of our chosen instance of the "Survey" class. -->
+<h1>{{ survey.title }}</h1>
+
+<!-- Access + display the [instructions] attribute of our chosen instance of the "Survey" class. -->
+<p>
+  {{ survey.instructions }}
+</p>
+
+<!-- Create a button that will route users from ("/"), which is our current location...
+to ("/begin") wherein the first question will be presented. -->
+<form action="/begin" method="POST">
+  <button>begin</button>
+</form>
+{% endblock %}
